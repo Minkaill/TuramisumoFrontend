@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react'
 import { getRooms } from '../../features/roomsTypes'
 import 'react-slideshow-image/dist/styles.css'
@@ -8,19 +7,18 @@ import { MdPeopleOutline } from 'react-icons/md'
 import { AiOutlineWifi } from 'react-icons/ai'
 import { GiWashingMachine } from 'react-icons/gi'
 import { MdFoodBank } from 'react-icons/md'
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "../../scss/pages/RoomPage.module.scss";
-
-
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import styles from '../../scss/pages/RoomPage.module.scss'
+import { Carousel } from './carousel/Carousel'
 
 const RoomPage = () => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  const dispatch = useDispatch()
+  const { id } = useParams()
   const navigate = useNavigate()
-  const rooms = useSelector((state) => state.room.rooms);
-  const loading = useSelector((state) => state.room.loadingRooms);
-  const room = rooms.find((item) => item._id === id);
+  const rooms = useSelector(state => state.room.rooms)
+  const loading = useSelector(state => state.room.loadingRooms)
+  const room = rooms.find(item => item._id === id)
   useEffect(() => {
     dispatch(getRooms())
   }, [])
@@ -31,7 +29,7 @@ const RoomPage = () => {
     return <div>loading...</div>
   } else if (room) {
     const slice = room.images.map(item => {
-      return <img src={item} alt='err' />
+      return <img className='item' src={item} alt='err' />
     })
     let offSet = 0
     const sliceLine = document.querySelector('.RoomPage_image_slice__CRXAh')
@@ -47,12 +45,15 @@ const RoomPage = () => {
         </div>
         <div className={styles.descrip_main}>
           <div className={styles.image_block}>
-            <div id='image_slice' className={styles.image_slice}>
-              {slice}
-            </div>
-            <button onClick={() => navigate(`/buy-room/${room._id}`)}>ЗАБРОНИРОВАТЬ</button>
+            <Carousel>{slice}</Carousel>
+            <button
+              className={styles.add_rooms}
+              onClick={() => navigate(`/buy-room/${room._id}`)}
+            >
+              ЗАБРОНИРОВАТЬ
+            </button>
           </div>
-          <button onClick={handleClickSliceLeft}>ЗАБРОНИРОВАТЬ</button>
+
           <div className={styles.room_aminit}>
             <h1>Удобства в номере</h1>
             <div className={styles.line}></div>
