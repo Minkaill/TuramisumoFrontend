@@ -117,7 +117,8 @@ const MenuId = () => {
                 <div className={styles.cart_food}>
                   <img src={el.image} alt="" />
                   <p>
-                    <b>Название:</b> {el.name}
+                    <b>Название:
+                      ADPWDPADWAPDMPAWD</b> {el.name}
                   </p>
                   <p>
                     <b>Описание:</b> {el.description}
