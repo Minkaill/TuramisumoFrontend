@@ -172,7 +172,7 @@ const Menu = () => {
                     <b>Описание:</b> {el.description}
                   </p>
                   <p>
-                    <b>Цена:</b> {el.price} ₽<p>₽</p>
+                    <b>Цена:</b> {el.price} ₽
                   </p>
                   {delivery && el.categoryId === "63104c2ba42da448c58ffa61" ? <button disabled>Нельзя заказывать  в номер</button> : <button onClick={() => handleBuy(el._id)}>Купить</button>}
                 </div>
