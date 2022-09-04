@@ -23,57 +23,58 @@ import Menu from './pages/Menu/Menu'
 import WelcomeCard from './pages/WelcomeCard/WelcomeCard'
 
 function App() {
-  const token = useSelector((state) => state.user.token)
+  const token = useSelector(state => state.user.token)
   const tokenAdmin = useSelector(state => state.chatUserAdmin.tokenAdmin)
 
-  if(!token) {
-    return (
-      <div className='App'>
-        <Routes>
-          <Route path='/' element={<MainContent />}/>
-          <Route path="/contacts" element={<Contact />} />
-          <Route path='/hostel' element={<HostelInfo />}/>
-          <Route path='/relax' element={<Relax />}/>
-          <Route path='/territory' element={<Territory />} />
-          <Route path='/prices' element={<Prices />}/>
-          <Route path='/room/:id' element={<RoomPage />} />
-          <Route path='/restoran' element={<Restoran />} />
-          <Route path='/sea' element={<Sea />}/>
-          <Route path='/buy-room/:id' element={<Booking />} />
-          <Route path='/welcome' element={<Navigate to="/" />} />
-          <Route path='/admin/registration' element={<AdminRegistration />} />
-          <Route path='/admin/authorization' element={<AdminAuthorization />} />
-        </Routes>
-        <Footer />
-      </div>
-    )
-  } else if (token) {
+  if (token) {
     return (
       <div className='App'>
         <Routes>
           <Route path='/menu' element={<Menu />} />
           <Route path='/cart' element={<CartPage />} />
-          <Route path='/' element={<MainContent />}/>
-          <Route path="/contacts" element={<Contact />} />
-          <Route path='/hostel' element={<HostelInfo />}/>
-          <Route path='/relax' element={<Relax />}/>
+          <Route path='/' element={<MainContent />} />
+          <Route path='/contacts' element={<Contact />} />
+          <Route path='/hostel' element={<HostelInfo />} />
+          <Route path='/relax' element={<Relax />} />
           <Route path='/territory' element={<Territory />} />
-          <Route path='/prices' element={<Prices />}/>
+          <Route path='/prices' element={<Prices />} />
           <Route path='/room/:id' element={<RoomPage />} />
           <Route path='/restoran' element={<Restoran />} />
-          <Route path='/sea' element={<Sea />}/>
+          <Route path='/sea' element={<Sea />} />
           <Route path='/buy-room/:id' element={<Booking />} />
+          
           <Route path='/welcome' element={<WelcomeCard />} />
         </Routes>
         <Footer />
       </div>
     )
-  } else if(tokenAdmin !== null) {
-      return (
+  } else if (tokenAdmin !== null) {
+    return (
       <div className='App'>
         <Routes>
           <Route path='/' element={<Admin />} />
         </Routes>
+      </div>
+    )
+  } else {
+    return (
+      <div className='App'>
+        <Routes>
+          <Route path='/' element={<MainContent />} />
+          <Route path='/contacts' element={<Contact />} />
+          <Route path='/hostel' element={<HostelInfo />} />
+          <Route path='/relax' element={<Relax />} />
+          <Route path='/territory' element={<Territory />} />
+          <Route path='/prices' element={<Prices />} />
+          <Route path='/room/:id' element={<RoomPage />} />
+          <Route path='/restoran' element={<Restoran />} />
+          <Route path='/sea' element={<Sea />} />
+          <Route path='/buy-room/:id' element={<Booking />} />
+          <Route path='/welcome' element={<Navigate to='/' />} />
+          <Route path='/admin/registration' element={<AdminRegistration />} />
+          <Route path='/admin/authorization' element={<AdminAuthorization />} />
+        </Routes>
+        <Footer />
       </div>
     )
   }

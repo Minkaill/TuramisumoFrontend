@@ -1,13 +1,17 @@
 import React from 'react'
-import jwtDecode from 'jwt-decode'
-import { useSelector } from 'react-redux'
-function Admin(props) {
-  const tokenAdmin = useSelector(state => state.chatUserAdmin.tokenAdmin)
-  const socket = useSelector(state => state.chatUserAdmin.socket)
-  const id = jwtDecode(tokenAdmin)
 
-  
-  return <div>ahhaha</div>
+function Admin(props) {
+  const handleClick = () => {
+    console.log(new Date().getFullYear())
+  }
+  setInterval(() => {
+    console.log(new Date().getFullYear())
+  }, 3000)
+  return (
+    <div>
+      <button onClick={handleClick}>au</button>
+    </div>
+  )
 }
 
 export default Admin
