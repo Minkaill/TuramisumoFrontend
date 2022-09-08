@@ -1,11 +1,11 @@
 <h1>Отель Turamisumo - место отдыха клиентов, бронирование отелей и столиков ресторана. Территория для семейного отдыха!</h1>
 
 <h2>Наша Команда:</h2>
-
-- [Турпал](https://github.com/taraevTurpalAli)
-- [Рабек](https://github.com/JhozevJoestar)
-- [Магомед](https://github.com/Minor95)
-- [Султан](https://github.com/SultanHasanov)
+- [Минкаил](https://github.com/Minkaill) - TeamLead
+- [Турпал](https://github.com/taraevTurpalAli) - Backend
+- [Рабек](https://github.com/JhozevJoestar) - Frontend
+- [Магомед](https://github.com/Minor95) - SocketIo(Chat)
+- [Султан](https://github.com/SultanHasanov) - Frontend
 
 
 ***
